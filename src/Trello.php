@@ -4,13 +4,17 @@ namespace Fsbcomunicacao\Trello;
 
 class Trello
 {
+    public function __construct($key, $token) {
+        $this->key = $key;
+        $this->token = $token;
+    }
+
     /**
-     * Multiplies the two given numbers
-     * @param int $a
-     * @param int $b
-     * @return int
+     * recebe um texto para ser inserido no cartão de crosscheck
+     * @param string $texto
+     * @return string $mensagem
      */
-    public function grava_comentario($texto)
+    public function gravaComentario($texto)
     {
         $client = new \GuzzleHttp\Client();
         try{
@@ -18,8 +22,8 @@ class Trello
                 'https://api.trello.com/1/cards/3MGZwTU2/actions/comments',
                 [
                     'form_params' => [
-                        'key' => '5add883b3ab540d2b474aab16511720b',
-                        'token' => '41144a4687c86d7c14b9e9e1d8a010e63b4b9c0ef04b788306dba21b4a5e42bf',
+                        'key' => $this->key,
+                        'token' => $this->token,
                         'text' => $texto
                     ]
                 ]
@@ -30,6 +34,6 @@ class Trello
             $mensagem = $e->message();
         }
         
-        return $message;
+        return $mensagem;
     }
 }
