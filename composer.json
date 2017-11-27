@@ -11,7 +11,7 @@
     "require": {},
     "autoload": {
         "psr-4": {
-            "fsbcomunicacao\\trello\\": "src"
+            "Fsbcomunicacao\\Trello\\": "src"
         }
     }
 }
