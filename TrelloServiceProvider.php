@@ -1,6 +1,6 @@
 <?php
 
-namespace src;
+namespace Fsbcomunicacao\Trello;
 
 use Illuminate\Support\ServiceProvider;
 
